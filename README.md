@@ -1,5 +1,8 @@
 # ais_json
 
+> [!NOTE]
+> This fork was updated to run with Python3. It also adds a -v command line option to show debug info.
+
 This is a simple AIS parser that reads a UDP stream from [aisdispatcher](http://www.aishub.net/ais-dispatcher) parses it into JSON and posts the output via http to the aprs.fi endpoint.
 
 requires libais: https://pypi.org/project/libais/
@@ -54,13 +57,14 @@ Your AIS SeCrEtKeY can be found in https://aprs.fi/account/ under "AIS password"
 
 ## install
 
-* git clone https://github.com/hsiboy/ais_json.git
+* git clone https://github.com/astuder/ais_json.git
 * pip install libais
 * pip install termcolor
 * $ cd ais_json/
 
+Run with debug output
+* $ ./ais_json.py -v
+
 Run in the background
 * $ ./ais_json.py &
-
-
 
