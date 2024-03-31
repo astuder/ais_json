@@ -84,11 +84,11 @@ while True:
       r = requests.post(URL, files={'jsonais': (None, post)})
       #dump non common packets for debugging
       if parsed['id'] not in (1,2,3,4):
-        print colored('-- Uncommon packet recieved\n', 'red')
-        print colored('id:', 'green'), parsed['id']
-        print colored('NMEA:', 'green'), parsed['nmea']
-        print colored('Parsed:', 'green'), parsed
-        print colored('Post:', 'green'), post
-        print colored('Result:', 'green'), json.loads(r.text)['description']
+        print(colored('-- Uncommon packet recieved\n', 'red'))
+        print(colored('id:', 'green'), parsed['id'])
+        print(colored('NMEA:', 'green'), parsed['nmea'])
+        print(colored('Parsed:', 'green'), parsed)
+        print(colored('Post:', 'green'), post)
+        print(colored('Result:', 'green'), json.loads(r.text)['description'])
     except requests.exceptions.RequestException as e:
-      print e
+      print(e)
