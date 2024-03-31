@@ -9,9 +9,16 @@ import ais.stream
 import socket
 import datetime
 import requests
+import argparse
 
 IP = '127.0.0.1'
 PORT = 5000
+
+parser.add_argument('-v', '--verbose',
+                    dest='verbose',
+                    action='store_true',
+                    help='enable debug messages')
+cli_options = parser.parse_args()
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.bind((IP, PORT))
@@ -83,8 +90,7 @@ while True:
     try:
       r = requests.post(URL, files={'jsonais': (None, post)})
       #dump non common packets for debugging
-      if parsed['id'] not in (1,2,3,4):
-        print(colored('-- Uncommon packet recieved\n', 'red'))
+      if cli_options.verbose:
         print(colored('id:', 'green'), parsed['id'])
         print(colored('NMEA:', 'green'), parsed['nmea'])
         print(colored('Parsed:', 'green'), parsed)
