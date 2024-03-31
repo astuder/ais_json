@@ -14,6 +14,7 @@ import argparse
 IP = '127.0.0.1'
 PORT = 5000
 
+parser = argparse.ArgumentParser()
 parser.add_argument('-v', '--verbose',
                     dest='verbose',
                     action='store_true',
